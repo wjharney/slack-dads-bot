@@ -3,7 +3,10 @@ module.exports = {
     browser: false,
     es2021: true
   },
-  extends: ['standard-with-typescript'],
+  extends: [
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'standard-with-typescript'
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 12,
@@ -13,6 +16,12 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   reportUnusedDisableDirectives: true,
   rules: {
+    '@typescript-eslint/no-misused-promises': [
+      'error',
+      {
+        checksVoidReturn: false
+      }
+    ],
     '@typescript-eslint/space-before-function-paren': [
       'error',
       {
