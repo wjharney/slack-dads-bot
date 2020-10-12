@@ -12,5 +12,15 @@ module.exports = {
   },
   plugins: ['@typescript-eslint'],
   reportUnusedDisableDirectives: true,
-  rules: {}
+  rules: {
+    '@typescript-eslint/space-before-function-paren': [
+      'error',
+      {
+        // TODO: Figure out which VS Code setting is enforcing named: never and disable it so that this can be 'always'
+        named: 'never',
+        anonymous: 'always',
+        asyncArrow: 'always'
+      }
+    ]
+  }
 }
