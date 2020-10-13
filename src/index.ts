@@ -22,6 +22,9 @@ async function init(): Promise<void> {
   if (VERIFY_ONLY) {
     console.log('Initializing for verification only.')
   } else {
+    const db = await import('./db')
+    await db.init()
+
     const handlers = await import('./events')
     events.on('message', handlers.onMessage)
   }
