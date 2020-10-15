@@ -22,9 +22,11 @@ async function init(): Promise<void> {
   if (VERIFY_ONLY) {
     console.log('Initializing for verification only.')
   } else {
+    console.log('Connecting to database.')
     const db = await import('./db')
     await db.init()
 
+    console.log('Listening to events.')
     const handlers = await import('./events')
     events.on('message', handlers.onMessage)
   }
