@@ -2,6 +2,9 @@
   "name": "slack-dads-bot",
   "version": "1.0.0",
   "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "author": "WJH",
   "main": "src/index.ts",
   "scripts": {
     "lint": "eslint . --ext ts",
@@ -9,9 +12,14 @@
     "start": "ts-node .",
     "verify": "npm start -- --verify"
   },
-  "keywords": [],
-  "author": "WJH",
-  "license": "MIT",
+  "dependencies": {
+    "@slack/events-api": "^2.3.4",
+    "dotenv": "^8.2.0",
+    "pg": "^8.4.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.5",
+    "ts-node": "^9.0.0"
+  },
   "devDependencies": {
     "@types/node": "^12.12.67",
     "@types/pg": "^7.14.5",
@@ -27,14 +35,6 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "sqlite3": "^5.0.0",
-    "ts-node": "^9.0.0",
     "typescript": "^4.0.3"
-  },
-  "dependencies": {
-    "@slack/events-api": "^2.3.4",
-    "dotenv": "^8.2.0",
-    "pg": "^8.4.1",
-    "pg-hstore": "^2.3.3",
-    "sequelize": "^6.3.5"
   }
 }
