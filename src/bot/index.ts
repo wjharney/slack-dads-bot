@@ -23,7 +23,7 @@ async function init(): Promise<void> {
     console.log('Initializing for verification only.')
   } else {
     console.log('Connecting to database.')
-    const db = await import('./db')
+    const db = await import('../util/db')
     await db.init()
 
     console.log('Listening to events.')

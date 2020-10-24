@@ -5,7 +5,7 @@
   "keywords": [],
   "license": "MIT",
   "author": "WJH",
-  "main": "src/index.ts",
+  "main": "src/bot/index.ts",
   "scripts": {
     "lint": "eslint . --ext ts",
     "lint:fix": "npm run lint -- --fix",

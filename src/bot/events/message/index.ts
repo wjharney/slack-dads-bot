@@ -1,4 +1,4 @@
-import { Action, ActionAttributes } from '../../db'
+import { Action, ActionAttributes } from '../../../util/db'
 
 interface MessageEvent {
   type: 'message'
