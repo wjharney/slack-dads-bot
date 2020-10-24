@@ -22,6 +22,10 @@ module.exports = {
         checksVoidReturn: false
       }
     ],
+    '@typescript-eslint/no-unsafe-assignment': 'off',
+    '@typescript-eslint/no-unsafe-call': 'off',
+    '@typescript-eslint/no-unsafe-return': 'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
     '@typescript-eslint/space-before-function-paren': [
       'error',
       {
@@ -30,6 +34,7 @@ module.exports = {
         anonymous: 'always',
         asyncArrow: 'always'
       }
-    ]
+    ],
+    '@typescript-eslint/strict-boolean-expressions': 'off',
   }
 }
