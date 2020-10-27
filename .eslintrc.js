@@ -36,5 +36,8 @@ module.exports = {
       }
     ],
     '@typescript-eslint/strict-boolean-expressions': 'off',
+    // TODO: Something is mysteriously enforcing 'after' for functions, but 'before'/'neither' for class methods
+    // Eslint doesn't allow that granularity ???
+    'generator-star-spacing': 'off'
   }
 }
