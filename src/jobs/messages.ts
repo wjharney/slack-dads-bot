@@ -1,7 +1,8 @@
 import {
   AnyObject,
   app,
-  list
+  list,
+  token
 } from '../util'
 import { job as getChannels } from './channels'
 
@@ -24,7 +25,7 @@ export async function getChannelMessages(channel: AnyObject): Promise<AnyObject[
     } catch (err) {
       if ((err?.data || err?.response)?.error === 'not_in_channel') {
         if (channel.is_archived) return [] // Can't join to get messages
-        await app.client.conversations.join({ channel: channel.id })
+        await app.client.conversations.join({ token, channel: channel.id })
         return await getMessages(channel.id)
       }
       throw err
