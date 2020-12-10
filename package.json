@@ -5,13 +5,14 @@
   "keywords": [],
   "license": "MIT",
   "author": "WJH",
-  "main": "src/bot/index.ts",
+  "main": "dist/bot",
   "scripts": {
     "lint": "eslint . --ext ts",
     "lint:fix": "npm run lint -- --fix",
-    "start": "ts-node .",
+    "start": "node .",
     "verify": "npm start -- --verify",
-    "job": "ts-node ./src/run-job"
+    "job": "ts-node ./src/run-job",
+    "postinstall": "tsc"
   },
   "dependencies": {
     "@slack/bolt": "^2.4.1",
