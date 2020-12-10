@@ -15,6 +15,7 @@ async function init(): Promise<void> {
     console.log('Listening to events.')
     const handlers = await import('./events')
     app.message(handlers.onMessage)
+    app.event('team_join', handlers.onTeamJoin)
   }
 
   await app.start(PORT)
