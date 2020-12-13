@@ -15,6 +15,7 @@ async function init(): Promise<void> {
     console.log('Listening to events.')
     const handlers = await import('./events')
     app.message(handlers.onMessage)
+    app.event('emoji_changed', handlers.onEmojiChanged)
     app.event('team_join', handlers.onTeamJoin)
   }
 
