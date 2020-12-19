@@ -48,5 +48,8 @@ export const onEmojiChanged = async ({ event, body }: SlackEventMiddlewareArgs<'
     channel: alertChannel,
     text,
     icon_emoji: icon
+  }).catch(err => {
+    console.error(err)
+    console.log(JSON.stringify(err, null, 2))
   })
 }
