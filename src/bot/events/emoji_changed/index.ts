@@ -1,5 +1,5 @@
 import { SlackEventMiddlewareArgs } from '@slack/bolt'
-import { app } from '../../../util'
+import { app, token } from '../../../util'
 
 // TODO: Unhardcode
 const alertChannel = 'C0KAS6WGK'
@@ -46,10 +46,8 @@ export const onEmojiChanged = async ({ event, body }: SlackEventMiddlewareArgs<'
 
   await app.client.chat.postMessage({
     channel: alertChannel,
+    icon_emoji: icon,
     text,
-    icon_emoji: icon
-  }).catch(err => {
-    console.error(err)
-    console.log(JSON.stringify(err, null, 2))
+    token
   })
 }
