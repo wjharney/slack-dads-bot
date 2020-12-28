@@ -8,6 +8,7 @@ import { Action, ActionAttributes, validBody } from '../../../util'
  */
 export const onTeamJoin = async ({ body, event }: SlackEventMiddlewareArgs<'team_join'>): Promise<void> => {
   if (!validBody(body)) {
+    console.error('Team join event has invalid body.')
     return // Don't handle this event
   }
   const parsed: ActionAttributes = {
