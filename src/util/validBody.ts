@@ -10,9 +10,10 @@ export function validBody<T extends string>(body: SlackEventMiddlewareArgs<T>['b
     valid = false
     console.error('Message body is missing "event.user"')
   }
-  if (!body.event.ts) {
+
+  if (!body.event.ts && !body.event.event_ts) {
     valid = false
-    console.error('Message body is missing "event.ts"')
+    console.error('Message body is missing "event.ts" and "event.event_ts"')
   }
   if (!valid) {
     console.log(body)
