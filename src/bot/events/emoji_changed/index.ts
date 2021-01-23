@@ -24,7 +24,7 @@ export const onEmojiChanged = async ({ event, body }: SlackEventMiddlewareArgs<'
     const url = event.value as string
     icon = event.name as string
     if (isAlias(url)) {
-      const original = escape(colonize(unalias(url)))
+      const original = codify(colonize(unalias(url)))
       text = `New emoji alias: ${emoji} ${escaped} (alias for ${original})`
     } else {
       text = `New emoji: ${emoji} ${escaped}`
