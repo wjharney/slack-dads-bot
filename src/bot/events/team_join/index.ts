@@ -15,7 +15,8 @@ export const onTeamJoin = async ({ body, event }: SlackEventMiddlewareArgs<'team
     action: 'team_join',
     team: body.team_id,
     user: (event.user as { id: string }).id,
-    timestamp: new Date(+event.event_ts * 1000)
+    // Slack API includes `event_ts`, but it's missing from the @slack/bolt type definition :/
+    timestamp: new Date(+(event as any).event_ts * 1000)
   }
   console.log(`[${parsed.timestamp.toISOString()}] ${parsed.action}: ${parsed.team}/${parsed.user}`)
   await Action.upsert(parsed)

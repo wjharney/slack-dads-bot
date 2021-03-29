@@ -1,7 +1,7 @@
 import { SlackEventMiddlewareArgs, MessageEvent } from '@slack/bolt'
 import { Action, ActionAttributes, validBody } from '../../../util'
 
-const shouldHandle = (event: MessageEvent): boolean => {
+const shouldHandle = (event: MessageEvent): event is Exclude<MessageEvent, { subtype: string }> => {
   return typeof event.channel === 'string' && !event.subtype
 }
 
