@@ -33,11 +33,13 @@ export const onEmojiChanged = async ({ event, body }: SlackEventMiddlewareArgs<'
     const removed = (event.names as string[]).map(name => codify(colonize(name))).join(' ')
     text = `Emoji removed: ${removed}`
   } else if (event.subtype === 'rename') {
-    const emoji = colonize(event.new_name)
+    // Slack API documents this subtype, but it's missing from the @slack/bolt type definitions :/
+    // See: https://api.slack.com/events/emoji_changed
+    const emoji = colonize((event as any).new_name)
     const escaped = codify(emoji)
-    const prev = codify(colonize(event.old_name))
+    const prev = codify(colonize((event as any).old_name))
     text = `Emoji name changed: ${emoji} ${escaped} (was ${prev})`
-    icon = event.new_name as string
+    icon = (event as any).new_name
   } else {
     console.error(`Unknown emoji subtype: ${event.subtype as string}`)
     console.log(body)
